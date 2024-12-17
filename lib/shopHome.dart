@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:klust/focusPage.dart';
 
 class Shophome extends StatefulWidget {
   const Shophome({super.key});
@@ -42,10 +43,16 @@ class _ShophomeState extends State<Shophome> {
               ),
               itemCount: 10,
               itemBuilder: (BuildContext context, int index) {
-                return Card();
+                return Card(
+                  child: InkWell(
+                    onTap: (){
+                      Navigator.push(context, (MaterialPageRoute(builder: (context)=>const Focuspage())));
+                    },
+                  ),
+                );
               },
             ),
-            
+
           ],
         ),
       ),
