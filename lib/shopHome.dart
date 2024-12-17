@@ -18,30 +18,28 @@ class _ShophomeState extends State<Shophome> {
       ),
       body: SingleChildScrollView(
         child: Column(
+
           children: [
+            const Divider(),
             GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
               ),
               itemCount: 2,
+              shrinkWrap: true,
               itemBuilder: (BuildContext context, int index) {
                 return Card();
               },
             ),
             const Divider(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                SearchBar(),
-                IconButton(onPressed: (){}, icon:const Icon(Icons.list))
-              ],
-            ),
+            SearchBar(),
             const SizedBox(height: 20,),
             GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
               ),
               itemCount: 10,
+              shrinkWrap: true,
               itemBuilder: (BuildContext context, int index) {
                 return Card(
                   child: InkWell(

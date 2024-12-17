@@ -24,10 +24,10 @@ class _FocuspageState extends State<Focuspage> {
             ),
             const Divider(),
             ListTile(
-              title: Text("Product Name"),
-              subtitle: Text("Price"),
+              title: Text("Product Name",style: TextStyle(fontSize: 27)),
+              subtitle: Text("Price",style: TextStyle(fontSize: 20)),
             ),
-            Text("Description"),
+            Text("Description",style: TextStyle(fontSize: 16)),
             Placeholder(
               fallbackHeight: 200,
             )
@@ -35,22 +35,29 @@ class _FocuspageState extends State<Focuspage> {
         ),
       ),
       floatingActionButton: Container(
+        height: 50,
+        width: MediaQuery.of(context).size.width-100,
         child:Row(
           children: [
-            Container(
-              alignment: Alignment.center,
-              decoration:const BoxDecoration(
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(20),bottomLeft: Radius.circular(20)),
-                color: Colors.blue,
+            Expanded(
+              child: Container(
+                alignment: Alignment.center,
+                decoration:const BoxDecoration(
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(20),bottomLeft: Radius.circular(20)),
+                  color: Colors.blue,
+                ),
+                child:const Text("Buy Now",style: TextStyle(fontSize: 17),),
               ),
-              child:const Text("Buy Now"),
             ),
-            Container(
-              alignment: Alignment.center,
-              decoration:const BoxDecoration(
-                borderRadius: BorderRadius.only(topRight: Radius.circular(20),bottomRight: Radius.circular(20))
+            Expanded(
+              child: Container(
+                alignment: Alignment.center,
+                decoration:const BoxDecoration(
+                  color: Colors.green,
+                  borderRadius: BorderRadius.only(topRight: Radius.circular(20),bottomRight: Radius.circular(20))
+                ),
+                child: const Text("Cart",style: TextStyle(fontSize: 17)),
               ),
-              child: const Text("Cart"),
             )
           ],
         ) ,

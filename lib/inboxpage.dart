@@ -14,8 +14,27 @@ class _InboxpageState extends State<Inboxpage> {
       body: ListView.builder(
         itemCount: 10,
         shrinkWrap: true,
+        padding:const EdgeInsets.all(10),
         itemBuilder: (BuildContext context, int index) {
-          return Card();
+          return Card(
+            child: ListTile(
+              title: Text("User Name"),
+              subtitle: Text("Last Message"),
+              trailing: Column(
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      color: Colors.blue,
+                      shape: BoxShape.circle
+                    ),
+                    child: Text("2"),
+                  ),
+                  Icon(Icons.check)
+                ],
+              ),
+            ),
+          );
         },
       ),
     );

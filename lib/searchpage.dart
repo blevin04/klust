@@ -11,20 +11,30 @@ class _SearchpageState extends State<Searchpage> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      body: Column(
-        children: [
-          SearchBar(),
-          GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: SearchBar(),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerTop,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(height: 10,),
+            
+            GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+              ),
+              itemCount: 10,
+              shrinkWrap: true,
+              padding:const EdgeInsets.only(top: 55),
+              physics: const NeverScrollableScrollPhysics(),
+              itemBuilder: (BuildContext context, int index) {
+                return Card();
+              },
             ),
-            itemCount: 10,
-            shrinkWrap: true,
-            itemBuilder: (BuildContext context, int index) {
-              return Card();
-            },
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -13,6 +13,7 @@ class Homepage extends StatelessWidget {
     return  Scaffold(
       appBar: AppBar(
         leading:InkWell(
+          borderRadius: BorderRadius.circular(20),
           onTap: (){
             Navigator.push(context, MaterialPageRoute(builder: (context)=>const Profilepage()));
           },
@@ -67,28 +68,38 @@ class _HomepageDataState extends State<HomepageData> {
     return  Scaffold(
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(height: 10,),
             Placeholder(
               fallbackHeight: MediaQuery.of(context).size.height/2.5,
             ),
-            ListView.builder(
-              itemCount: 10,
-              scrollDirection: Axis.horizontal,
-              shrinkWrap: true,
-              itemBuilder: (BuildContext context, int index) {
-                return Container(
-                  //alignment: Alignment.center,
-                  padding:const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey)
-                  ),
-                  child:const Text("Details"),
-                );
-              },
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: 40,
+              child: ListView.builder(
+                itemCount: 10,
+                scrollDirection: Axis.horizontal,
+                shrinkWrap: true,
+                // padding:const EdgeInsets.only(left: 10,right: 10),
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                    //alignment: Alignment.center,
+                    margin:const EdgeInsets.only(left: 10),
+                    padding:const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: const Color.fromARGB(255, 255, 255, 245),
+                      border: Border.all(color: Colors.grey)
+                    ),
+                    child:const Text("Details"),
+                  );
+                },
+              ),
             ),
             const Divider(),
-            const Text("User Name"),
-            const Text("Bio"),
+            const Text("User Name",style: TextStyle(fontSize: 29),),
+            const Text("Bio",style: TextStyle(fontSize: 18),),
             const Placeholder(fallbackHeight: 200,)
           ],
         ),
