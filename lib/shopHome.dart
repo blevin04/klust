@@ -28,7 +28,7 @@ class _ShophomeState extends State<Shophome> {
                 return Card();
               },
             ),
-            Divider(),
+            const Divider(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -36,7 +36,7 @@ class _ShophomeState extends State<Shophome> {
                 IconButton(onPressed: (){}, icon:const Icon(Icons.list))
               ],
             ),
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
             GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,

@@ -28,7 +28,7 @@ class Homepage extends StatelessWidget {
         listenable:currentPage ,
         builder: (BuildContext context, child) {
           if (currentPage.value == 0) {
-            return const Homepage();
+            return const HomepageData();
           }
           if (currentPage.value == 1) {
             return const Searchpage();
@@ -49,6 +49,49 @@ class Homepage extends StatelessWidget {
             currentPage.value = 2;
           }, icon: const Icon(Icons.message))
         ],
+      ),
+    );
+  }
+}
+
+class HomepageData extends StatefulWidget {
+  const HomepageData({super.key});
+
+  @override
+  State<HomepageData> createState() => _HomepageDataState();
+}
+
+class _HomepageDataState extends State<HomepageData> {
+  @override
+  Widget build(BuildContext context) {
+    return  Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Placeholder(
+              fallbackHeight: MediaQuery.of(context).size.height/2.5,
+            ),
+            ListView.builder(
+              itemCount: 10,
+              scrollDirection: Axis.horizontal,
+              shrinkWrap: true,
+              itemBuilder: (BuildContext context, int index) {
+                return Container(
+                  //alignment: Alignment.center,
+                  padding:const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey)
+                  ),
+                  child:const Text("Details"),
+                );
+              },
+            ),
+            const Divider(),
+            const Text("User Name"),
+            const Text("Bio"),
+            const Placeholder(fallbackHeight: 200,)
+          ],
+        ),
       ),
     );
   }
